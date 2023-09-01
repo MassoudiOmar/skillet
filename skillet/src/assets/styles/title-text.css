@@ -1,0 +1,19 @@
+.title-text {
+  font-size: xx-large;
+  font-weight: 600;
+  color: aliceblue;
+  margin-bottom: 3rem;
+
+}
+
+.title-text {
+  /* Media query to adjust font size for smaller screens */
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  /* Media query to adjust font size for even smaller screens */
+  @media (max-width: 576px) {
+    font-size: 16px;
+  }
+}
