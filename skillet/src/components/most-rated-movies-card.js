@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-grid-carousel";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "../assets/styles/arrow.css";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 function MostRatedMovies() {
   const movies = [
@@ -69,56 +70,61 @@ function MostRatedMovies() {
   ];
   return (
     <>
-        <div className="title-card">Les films les mieux notés</div>
+      <div className="title-card">Les films les mieux notés</div>
 
-    <Carousel cols={6} rows={1} gap={10} loop>
-      {movies.map((movie, index) => {
-        return (
-          <Carousel.Item key={index}>
-            <img
-              style={{ borderRadius: "5px" }}
-              height="220px"
-              width="155px"
-              src={movie.imageURL}
-              alt={movie.title}
-              />
-
-            <div>
-              <h3 className="movie-title">{movie.title}</h3>
-              <div
-                className="d-flex"
-                style={{
-                  justifyContent: "start",
-                  alignItems: "center",
-                  color: "grey",
-                }}
-                >
-                <div
-                  class="progress d-flex"
+      <Carousel cols={6} rows={1} gap={10} loop>
+        {movies.map((movie, index) => {
+          return (
+            <Carousel.Item key={index}>
+              <Link key={index} to={`/description/${movie.title}`}>
+                <img
                   style={{
-                    width: "40%",
-                    height: "9px",
-                    marginRight: "10px",
-                    backgroundColor: "black",
+                    borderRadius: "4px",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Add this line for the shadow
                   }}
-                >
+                  height="220px"
+                  width="155px"
+                  src={movie.imageURL}
+                  alt={movie.title}
+                />
+              </Link>
+
+                <div>
+                  <h3 className="movie-title">{movie.title}</h3>
                   <div
-                    class="progress-bar bg-success"
-                    role="progressbar"
-                    style={{ width: "80%" }}
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    ></div>
+                    className="d-flex"
+                    style={{
+                      justifyContent: "start",
+                      alignItems: "center",
+                      color: "grey",
+                    }}
+                  >
+                    <div
+                      class="progress d-flex"
+                      style={{
+                        width: "40%",
+                        height: "9px",
+                        marginRight: "10px",
+                        backgroundColor: "black",
+                      }}
+                    >
+                      <div
+                        class="progress-bar bg-success"
+                        role="progressbar"
+                        style={{ width: "80%" }}
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    80%
+                  </div>
                 </div>
-                80%
-              </div>
-            </div>
-          </Carousel.Item>
-        );
-      })}
-    </Carousel>
-      </>
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
+    </>
   );
 }
 

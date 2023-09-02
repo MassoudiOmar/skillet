@@ -1,0 +1,10 @@
+.first-part-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* You can adjust the height as needed */
+    width: 60%;
+    margin: 0 auto;
+
+  }
+  

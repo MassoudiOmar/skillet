@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "../assets/styles/arrow.css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 function CommingThisWeekMovies() {
   const [imageLoading, setImageLoading] = useState(true);
@@ -71,38 +72,50 @@ function CommingThisWeekMovies() {
     },
     // Add more movies as needed
   ];
+
   return (
     <>
-      <div className="title-card mt-5">A l'affiche cette semaine</div>
 
-      <Carousel cols={6} rows={1} gap={10} loop style={{ width: "600px" }}>
-        {movies.map((movie, index) => {
-          return (
-            <Carousel.Item key={index}>
-              {movie.imageURL?(
+    <Carousel
+      className="centered-card-container"
+      cols={6}
+      rows={1}
+      gap={5}
+      loop
+      >
+      <p className="text-white">A l'affiche cette semaine</p>
+      {movies.map((movie, index) => {
+        return (
+          <Carousel.Item key={index}>
+            {movie.imageURL ? (
+              <Link key={index} to={`/description/${movie.title}`}>
                 <img
-                  style={{ borderRadius: "5px" }}
-                  height="220px"
-                  width="155px"
+                  style={{
+                    borderRadius: "4px",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    height: "10rem",
+                    width: "8rem",
+                  }}
                   src={movie.imageURL}
                   alt={movie.title}
                 />
-              ) : <Skeleton height={220} width={155} />}
-              <div>
-                {movie.title ? (
-                  <h3 className="movie-title">{movie.title}</h3>
+              </Link>
+            ) : (
+              <Skeleton height={220} width={155} />
+              )}
+            <div>
+              {movie.title ? (
+                <h3 className="movie-title">{movie.title}</h3>
                 ) : (
                   <Skeleton width={120} height={15} borderRadius={50} />
-                )}
-                <p
-                  style={{ color: "grey", fontSize: "1rem" }}
-                >{`${movie.time}`}</p>
-              </div>
-            </Carousel.Item>
-          );
-        })}
-      </Carousel>
-    </>
+              )}
+              <text className="text-white">{`${movie.time}`}</text>
+            </div>
+          </Carousel.Item>
+        );
+      })}
+    </Carousel>
+        </>
   );
 }
 
