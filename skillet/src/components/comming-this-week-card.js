@@ -75,47 +75,44 @@ function CommingThisWeekMovies() {
 
   return (
     <>
+      <p className="comming-this-week-title">A l'affiche cette semaine</p>
 
-    <Carousel
-      className="centered-card-container"
-      cols={6}
-      rows={1}
-      gap={5}
-      loop
+      <Carousel
+        className="centered-card-container"
+        cols={6}
+        rows={1}
+        gap={5}
+        loop
       >
-      <p className="text-white">A l'affiche cette semaine</p>
-      {movies.map((movie, index) => {
-        return (
-          <Carousel.Item key={index}>
-            {movie.imageURL ? (
-              <Link key={index} to={`/description/${movie.title}`}>
-                <img
-                  style={{
-                    borderRadius: "4px",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    height: "10rem",
-                    width: "8rem",
-                  }}
-                  src={movie.imageURL}
-                  alt={movie.title}
-                />
-              </Link>
-            ) : (
-              <Skeleton height={220} width={155} />
+        {movies.map((movie, index) => {
+          return (
+            <Carousel.Item key={index}>
+              {movie.imageURL ? (
+                <Link key={index} to={`/description/${movie.title}`}>
+                  <img
+                    className="img-comming-this-week-card"
+                    src={movie.imageURL}
+                    alt={movie.title}
+                  />
+                </Link>
+              ) : (
+                <Skeleton height={220} width={155} />
               )}
-            <div>
-              {movie.title ? (
-                <h3 className="movie-title">{movie.title}</h3>
+              <div>
+                {movie.title ? (
+                  <h3 className="movie-title">{movie.title}</h3>
                 ) : (
                   <Skeleton width={120} height={15} borderRadius={50} />
-              )}
-              <text className="text-white">{`${movie.time}`}</text>
-            </div>
-          </Carousel.Item>
-        );
-      })}
-    </Carousel>
-        </>
+                )}
+                <text className="movie-time">
+                  {`${movie.time}`}
+                </text>
+              </div>
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
+    </>
   );
 }
 

@@ -33,7 +33,7 @@ function MainPage() {
           top: 0,
           left: 0,
           width: "100%",
-          height: "60%",
+          height: "70%",
           zIndex: -1,
         }}
       ></div>
@@ -42,11 +42,11 @@ function MainPage() {
         <VerticalCarousel data={selectedItem} />
       </div>
 
-     <div className="comming-This-Week" style={{width:"64%"}}>
+     <div className="comming-This-Week">
         <CommingThisWeekMovies />
       </div>
       
-      <div className="most-rated-movies" style={{width:"64%"}}>
+      <div className="most-rated-movies">
         <MostRatedMovies />
       </div>
       

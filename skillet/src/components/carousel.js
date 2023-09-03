@@ -36,15 +36,11 @@ const VerticalCarousel = (props) => {
             <div key={index}>
               <img
                 src={link}
-                style={{
-                  maxWidth: "100%",
-                  height: "70%",
-                  borderRadius: "7px",
-                }}
+              className="carousel-image-slider"
                 alt={`Image ${index + 1}`}
               />
               <div className="image-text">
-                <h3>{titles[index]} (2020)</h3>
+                <p className="carousel-title">{titles[index]} (2020)</p>
                 <div className="image-buttons">
                   <AddButton />
                   <InformationButton />

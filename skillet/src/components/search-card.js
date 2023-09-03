@@ -163,7 +163,7 @@ function SearchCard() {
   const renderMovieCard = (movie, movieIndex) => (
     <Col key={movieIndex} md={2} className="mb-5">
       <Card.Img
-      style={{borderRadius:"3px"}}
+        style={{ borderRadius: "3px" }}
         variant="top"
         src={movie.imageURL}
         onLoad={() => setImageLoading(false)}
@@ -175,15 +175,19 @@ function SearchCard() {
       )}
       <Card.Body>
         <Card.Title className="movie-title">{movie.title}</Card.Title>
-        <Card.Text className="movie-time" style={{color:"darkgray"}}>{movie.time}</Card.Text>
+        <Card.Text className="movie-time" style={{ color: "darkgray" }}>
+          {movie.time}
+        </Card.Text>
       </Card.Body>
     </Col>
   );
 
   return (
     <Row className="search-card-div">
-      <p style={{fontSize:"2.5rem",fontWeight:"500"}} className="text-white">Sonic</p>
-      <p style={{fontSize:"2.5rem"}} className="text-white">154 results</p>
+      <p className="text-white display-3" style={{ margin: "0px" }}>
+        Sonic
+      </p>
+      <p className="text-white display-5">154 results</p>
       {movies.map((movie, movieIndex) => renderMovieCard(movie, movieIndex))}
     </Row>
   );

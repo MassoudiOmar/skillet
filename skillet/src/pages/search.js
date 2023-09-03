@@ -18,7 +18,6 @@ function Search() {
   return (
     <div className="search-page">
       <div>
-      
         <SearchCard />
       </div>
     </div>

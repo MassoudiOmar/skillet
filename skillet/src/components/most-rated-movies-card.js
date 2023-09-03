@@ -70,7 +70,7 @@ function MostRatedMovies() {
   ];
   return (
     <>
-      <div className="title-card">Les films les mieux notés</div>
+      <p className="comming-this-week-title">Les films les mieux notés</p>
 
       <Carousel cols={6} rows={1} gap={10} loop>
         {movies.map((movie, index) => {
@@ -78,48 +78,43 @@ function MostRatedMovies() {
             <Carousel.Item key={index}>
               <Link key={index} to={`/description/${movie.title}`}>
                 <img
-                  style={{
-                    borderRadius: "4px",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Add this line for the shadow
-                  }}
-                  height="220px"
-                  width="155px"
+                  className="img-comming-this-week-card"
                   src={movie.imageURL}
                   alt={movie.title}
                 />
               </Link>
 
-                <div>
-                  <h3 className="movie-title">{movie.title}</h3>
+              <div>
+                <h3 className="movie-title">{movie.title}</h3>
+                <div
+                  className="d-flex"
+                  style={{
+                    justifyContent: "start",
+                    alignItems: "center",
+                    color: "grey",
+                  }}
+                >
                   <div
-                    className="d-flex"
+                    class="progress d-flex"
                     style={{
-                      justifyContent: "start",
-                      alignItems: "center",
-                      color: "grey",
+                      width: "40%",
+                      height: "5px",
+                      marginRight: "10px",
+                      backgroundColor: "black",
                     }}
                   >
                     <div
-                      class="progress d-flex"
-                      style={{
-                        width: "40%",
-                        height: "9px",
-                        marginRight: "10px",
-                        backgroundColor: "black",
-                      }}
-                    >
-                      <div
-                        class="progress-bar bg-success"
-                        role="progressbar"
-                        style={{ width: "80%" }}
-                        aria-valuenow="25"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    80%
+                      class="progress-bar bg-success"
+                      role="progressbar"
+                      style={{ width: "80%" }}
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
                   </div>
+                  80%
                 </div>
+              </div>
             </Carousel.Item>
           );
         })}

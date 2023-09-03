@@ -1,15 +1,15 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button';
+import React from "react";
+import Button from "react-bootstrap/Button";
 
-
-
-
-function InformationButton({onClick}) {
-
+function InformationButton({ onClick }) {
   return (
-      <Button variant="outline-light" onClick={onClick}>En savoir plus</Button>
+    <div className="btn-responsive">
 
-  )
+    <Button variant="outline-light" onClick={onClick}  >
+      En savoir plus
+    </Button>
+    </div>
+  );
 }
 
-export default InformationButton
+export default InformationButton;

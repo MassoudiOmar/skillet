@@ -90,7 +90,7 @@ function Casting() {
 
   return (
     <Row className="casting-rows">
-      <p className="text-white">Casting</p>
+      <p className="text-white display-6">Casting</p>
 
       {groupedMovies.map((movieGroup, groupIndex) => (
         <React.Fragment key={groupIndex}>

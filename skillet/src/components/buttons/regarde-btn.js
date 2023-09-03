@@ -1,15 +1,15 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button';
-
-
-
-
-function AddButton({onClick}) {
-
+import React from "react";
+import Button from "react-bootstrap/Button";
+import '../../assets/styles/buttons.css'
+function AddButton({ onClick }) {
   return (
-<Button variant="light"  onClick={onClick}>Regarder</Button>
+    <div  className="btn-responsive">
 
-  )
+    <Button variant="light" onClick={onClick}>
+      Regarder
+    </Button>
+    </div>
+  );
 }
 
-export default AddButton
+export default AddButton;

@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/styles/title-text.css";
 import SearchComponent from "../components/searchBar";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import { useNavigate } from "react-router-dom";
+import { BsSearch } from 'react-icons/bs';
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 function Navbar() {
+
   return (
     <div
-      class="navbar-container "
-      style={{ display: "flex", justifyContent: "space-between" ,width:"61%"}}
+      className="navbar-container"
     >
       <div className="navbar-content" style={{ flex: 1 }}>
         {/* Carousel Title */}
-        <h2 className="title-text">MOVIENIGHT</h2>
+        <h2 className="title-text-navbar">MOVIENIGHT</h2>
       </div>
-      <div className="navbar-content " style={{ flex: 1 }}>
-        {/* Search Bar */}
-        <div className="search">
-          <SearchComponent />
-        </div>
+      <div className="navbar-content" style={{ flex: 1 }}>
+        {/* Conditional rendering based on screen width */}
+          <div className='search-bar-navbar'>
+            <SearchComponent />
+          </div>
       </div>
     </div>
   );

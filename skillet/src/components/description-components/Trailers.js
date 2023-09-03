@@ -37,7 +37,7 @@ function Trailers() {
 
   return (
     <Row className="trailer-videos">
-      <p className="text-white">Bandes annonces</p>
+<p className="text-white display-6">Bandes annonces</p>
 
       {trailers.map((movie, movieIndex) => (
         <Col key={movieIndex} md={4} className="mb-5">
